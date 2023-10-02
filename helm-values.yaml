@@ -1,0 +1,18 @@
+server:
+  image:
+    repository: hashicorp/vault
+    tag: "1.14"
+
+  # Run Vault in "HA" mode.
+  ha:
+    enabled: true
+    replicas: 3
+    raft:
+      enabled: true
+
+# Vault UI
+ui:
+  enabled: true
+  serviceType: "LoadBalancer"
+  serviceNodePort: null
+  externalPort: 8200
