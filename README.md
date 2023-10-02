@@ -21,4 +21,4 @@ Follow steps in vaultinit.sh
 kubectl get svc -n vault
 ```
 
-### Connect to Vault UI: http://vault-ui-external-ip:8200
+### Connect to Vault UI: http://<vault-ui-external-ip>:8200
