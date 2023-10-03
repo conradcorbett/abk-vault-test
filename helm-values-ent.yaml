@@ -1,0 +1,29 @@
+server:
+  image:
+    repository: hashicorp/vault-enterprise
+    tag: "1.14-ent"
+  enterpriseLicense:
+    secretName: vault-ent-license   
+
+  # Run Vault in "HA" mode.
+  ha:
+    enabled: true
+    replicas: 3
+    raft:
+      enabled: true
+      setNodeId: true
+
+      config: |
+        seal "gcpckms" {
+          project     = "<gcloud-project>"
+          region      = "<keyring_location>"
+          key_ring    = "<key_ring>"
+          crypto_key  = "<crypto_key>"
+        }
+
+# Vault UI
+ui:
+  enabled: true
+  serviceType: "ClusterIP"
+#  serviceNodePort: null
+  externalPort: 8200
