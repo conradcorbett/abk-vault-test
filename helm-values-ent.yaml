@@ -1,4 +1,12 @@
 server:
+  extraEnvironmentVars:
+    GOOGLE_REGION: global
+    GOOGLE_PROJECT: <insert-your-GCP-project-name>
+    GOOGLE_APPLICATION_CREDENTIALS: /vault/userconfig/kms-creds/credentials.json
+  extraVolumes:
+    - type: secret
+      name: kms-creds
+      path: /vault/userconfig # default is `/vault/userconfig`
   image:
     repository: hashicorp/vault-enterprise
     tag: "1.14-ent"
