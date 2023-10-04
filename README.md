@@ -9,9 +9,9 @@ kubectl create namespace vault
 kubectl -n vault create secret generic vault-ent-license --from-literal="license=02MV..."
 ```
 
-### If deploying Vault Enterprise and GCP Auto Unseal
-Get credentials.json file from GCP, then load it as a k8s secret
-Helpful links: 
+### GCP Auto Unseal
+Get credentials.json file from GCP, then load it as a k8s secret.
+#### Helpful links: 
 https://support.hashicorp.com/hc/en-us/articles/5277291261075-Auto-unseal-using-GCP-Cloud-KMS
 https://gist.github.com/sdeoras/96e78780561b1e941e8d5c4d3a78b7e9
 ```shell
