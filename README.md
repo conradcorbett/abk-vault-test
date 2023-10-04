@@ -3,6 +3,11 @@
 ```shell
 kubectl create namespace vault
 ```
+### If deploying Vault Enterprise and GCP Auto Unseal
+Create a credentials.json file with your GCP credentials, then load it as a k8s secret
+```shell
+kubectl create -n vault secret generic kms-creds --from-file=credentials.json
+```
 ### Deploy using helm
 
 ```shell
